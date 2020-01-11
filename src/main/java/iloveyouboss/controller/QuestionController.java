@@ -1,7 +1,7 @@
 package iloveyouboss.controller;
 
 import iloveyouboss.domain.BooleanQuestion;
-import iloveyouboss.Question;
+import iloveyouboss.domain.Question;
 import iloveyouboss.domain.PercentileQuestion;
 import iloveyouboss.domain.Persistable;
 
@@ -15,7 +15,6 @@ import java.util.function.Consumer;
 
 public class QuestionController {
     private Clock clock = Clock.systemUTC();
-    // ...
 
     private static EntityManagerFactory getEntityManagerFactory() {
         return Persistence.createEntityManagerFactory("postgres-ds");
@@ -48,7 +47,6 @@ public class QuestionController {
     void setClock(Clock clock) {
         this.clock = clock;
     }
-    // ...
 
     void deleteAll() {
         executeInTransaction(

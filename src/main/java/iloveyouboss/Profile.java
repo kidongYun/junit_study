@@ -29,8 +29,7 @@ public class Profile {
         // The code of inner for syntax is best important logic in this project..
         // So you should treat this part more considerable than the other.
         for(Criterion criterion: criteria) {
-            Answer answer = answers.get(criterion.getAnswer().getQuestionText());
-            boolean match = criterion.getWeight() == Weight.DontCare || answer.match(criterion.getAnswer());
+            boolean match = criterion.matches(answerMatching(criterion));
 
             if(!match && criterion.getWeight() == Weight.MustMatch) {
                 kill = true;
@@ -48,5 +47,9 @@ public class Profile {
 
     public int score() {
         return score;
+    }
+
+    private Answer answerMatching(Criterion criterion) {
+        return answers.get(criterion.getAnswer().getQuestionText());
     }
 }
