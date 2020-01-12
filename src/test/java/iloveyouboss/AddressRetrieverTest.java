@@ -30,13 +30,9 @@ public class AddressRetrieverTest {
                         + "\"country_code\":\"us\"}"
                         + "}");
 
-        System.out.println(1 + "");
-
         /** Act */
         AddressRetriever retriever = new AddressRetriever(http);
-        Address address = retriever.retrieve(37.0, -104.0);
-
-        System.out.println(2 + "");
+        Address address = retriever.retrieve(38.0, -104.0);
 
         /** Assert */
         assertThat(address.houseNumber, equalTo("324"));
